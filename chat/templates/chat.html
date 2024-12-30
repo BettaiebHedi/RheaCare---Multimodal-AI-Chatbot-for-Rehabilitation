@@ -1,0 +1,85 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+</head>
+<body>
+  <div class="chat-container">
+    <!-- Flèche pour revenir à la page index -->
+    <a href="{% url 'index_page' %}" class="back-arrow">&#8592;</a>
+
+    <!-- Header avec message de bienvenue -->
+    <div class="chat-header">
+      <h3>Welcome to Our Chat Bot</h3>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+      <!-- Messages du chatbot -->
+    </div>
+
+    <div class="chat-footer">
+      <textarea id="user-input" placeholder="Tapez votre message..." rows="1"></textarea>
+      <button id="send-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="send-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script>document.addEventListener("DOMContentLoaded", () => {
+    const chatBody = document.getElementById("chat-body");
+    const userInput = document.getElementById("user-input");
+    const sendButton = document.getElementById("send-button");
+  
+    // Ajouter un message dans le chat
+    function appendMessage(message, sender) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+      messageDiv.textContent = message;
+      chatBody.appendChild(messageDiv);
+      chatBody.scrollTop = chatBody.scrollHeight; // Défilement automatique vers le bas
+    }
+  
+    // Gérer l'envoi de message
+    sendButton.addEventListener("click", () => {
+      const userMessage = userInput.value.trim();
+      if (userMessage) {
+        appendMessage(userMessage, "user");
+        userInput.value = "";
+  
+        // Appeler le serveur pour obtenir une réponse du bot
+        fetch("/chatbot/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value,
+          },
+          body: JSON.stringify({ message: userMessage }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            appendMessage(data.response, "bot");
+          })
+          .catch((error) => {
+            console.error("Erreur :", error);
+            appendMessage("Une erreur est survenue. Veuillez réessayer.", "bot");
+          });
+      }
+    });
+  
+    // Envoyer un message avec la touche "Entrée"
+    userInput.addEventListener("keypress", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendButton.click();
+      }
+    });
+  });
+  </script>
+</body>
+</html>

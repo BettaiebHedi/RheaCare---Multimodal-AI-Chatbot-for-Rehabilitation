@@ -1,0 +1,1163 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Home</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css'%}" rel="stylesheet">
+
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">neuralleaders@gmail.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+216 52 377 129</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">RhéaCare</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home<br></a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#departments">Departments</a></li>
+            <li><a href="#doctors">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'loader' %}">Chat</a></li>
+            <ul>
+              {% if user.is_authenticated %}
+                  <!-- Si l'utilisateur est connecté, vous pouvez afficher un lien de déconnexion ou autre -->
+                  <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              {% else %}
+                  <!-- Si l'utilisateur n'est pas connecté, afficher les liens pour se connecter ou s'inscrire -->
+                  <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                  <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Register</a></li>
+              {% endif %}
+          </ul>
+          
+        </ul>
+        
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        {% comment %} <a class="cta-btn d-none d-sm-block" href="#appointment">Make an Appointment</a> {% endcomment %}
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+      <img src="{% static 'assets/img/hero-bg.jpg'%}" alt="" data-aos="fade-in">
+
+      <div class="container position-relative">
+
+        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+          <h2>WELCOME TO RhéaCare</h2>
+          <p>
+            Your trusted partner in rheumatology and rehabilitation. Discover expert care, advanced therapies, and 24/7 support to help you move towards a healthier, pain-free life.
+          </p>
+          
+        </div><!-- End Welcome -->
+
+        <div class="content row gy-4">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
+              <h3>Why Choose RhéaCare?</h3>
+              <p>
+                At RhéaCare, we combine expert care in rheumatology and rehabilitation with cutting-edge technology to support your journey to recovery. Our innovative chatbot is available 24/7 to answer your questions, guide you through our services, and provide valuable health tips tailored to your needs.  
+                Experience personalized care, enhanced accessibility, and a commitment to improving your quality of life, all with RhéaCare.
+              </p>
+              
+              <div class="text-center">
+                <a href="#about" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="d-flex flex-column justify-content-center">
+              <div class="row gy-4">
+
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                    <i class="bi bi-heart-pulse"></i> <!-- Icon for health and care -->
+                    <h4>Comprehensive Rheumatology Care</h4>
+                    <p>
+                      Expert diagnosis and treatment plans tailored to manage and alleviate symptoms of rheumatic conditions, ensuring a better quality of life.
+                    </p>
+                  </div>
+                </div><!-- End Icon Box -->
+                
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+                    <i class="bi bi-person-check"></i> <!-- Icon for personalized care -->
+                    <h4>Personalized Rehabilitation Programs</h4>
+                    <p>
+                      Advanced therapies designed to restore mobility, strength, and confidence, adapted to meet your unique recovery goals.
+                    </p>
+                  </div>
+                </div><!-- End Icon Box -->
+                
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
+                    <i class="bi bi-chat-dots"></i> <!-- Icon for chatbot/communication -->
+                    <h4>24/7 Support with Our Chatbot</h4>
+                    <p>
+                      Accessible assistance anytime through our intelligent chatbot, providing instant answers to your questions and guidance on our services.
+                    </p>
+                  </div>
+                </div><!-- End Icon Box -->
+                
+              </div>
+            </div>
+          </div>
+        </div><!-- End  Content-->
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4 gx-5">
+
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'assets/img/about.jpg'%}" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+          </div>
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <h3>About Neuraleaders</h3>
+            <p>
+              At Neuraleaders, our mission is to provide expert care and rehabilitation with a focus on rheumatology, neurology, and physical therapy. We are dedicated to improving the quality of life for our patients by offering holistic treatments and personalized care plans. With a team of highly skilled professionals, we help patients achieve better health outcomes through innovative therapies and compassionate care.
+            </p>
+            <ul>
+              <li>
+                <i class="fa-solid fa-vial-circle-check"></i>
+                <div>
+                  <h5>Personalized Rehabilitation Plans</h5>
+                  <p>We design treatment plans tailored to each patient’s unique needs, ensuring the best recovery outcomes.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-pump-medical"></i>
+                <div>
+                  <h5>Comprehensive Neurological Care</h5>
+                  <p>Our neurological experts provide cutting-edge treatments to manage conditions like chronic pain, neurological disorders, and more.</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-heart-circle-xmark"></i>
+                <div>
+                  <h5>Holistic Wellness Approach</h5>
+                  <p>We focus on overall well-being, incorporating physical therapy, pain management, and lifestyle counseling to improve quality of life.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+   <!-- Stats Section -->
+<section id="stats" class="stats section light-background">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+        <i class="fas fa-users"></i>
+        <div class="stats-item">
+          <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Experts</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+        <i class="fas fa-project-diagram"></i>
+        <div class="stats-item">
+          <span data-purecounter-start="0" data-purecounter-end="45" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Projects Delivered</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+        <i class="fas fa-laptop-code"></i>
+        <div class="stats-item">
+          <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Tech Workshops</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+        <i class="fas fa-star"></i>
+        <div class="stats-item">
+          <span data-purecounter-start="0" data-purecounter-end="80" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Industry Awards</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Stats Section -->
+
+
+    <!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <p>At RhéaCare, we provide comprehensive care in rheumatology and rehabilitation, ensuring your well-being every step of the way.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="fas fa-hand-holding-medical"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Rheumatology Consultation</h3>
+          </a>
+          <p>Expert diagnosis and personalized care for managing arthritis, autoimmune diseases, and other rheumatic conditions.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Physical Rehabilitation</h3>
+          </a>
+          <p>Customized therapy plans to restore mobility, reduce pain, and enhance overall strength and functionality.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Neuromuscular Therapy</h3>
+          </a>
+          <p>Specialized treatments for neuromuscular conditions, designed to improve coordination and nerve function.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Chronic Pain Management</h3>
+          </a>
+          <p>Advanced solutions to manage and alleviate chronic pain, ensuring a better quality of life.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>24/7 Chatbot Support</h3>
+          </a>
+          <p>Instant assistance and guidance through our intelligent chatbot, available any time for your convenience.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item position-relative">
+          <div class="icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <a href="#" class="stretched-link">
+            <h3>Preventive Care Programs</h3>
+          </a>
+          <p>Proactive health programs to prevent the progression of rheumatic and musculoskeletal disorders.</p>
+        </div>
+      </div><!-- End Service Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Services Section -->
+
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment section">
+
+      {% comment %} <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Appointment</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group mt-3">
+              <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="department" id="department" class="form-select" required="">
+                <option value="">Select Department</option>
+                <option value="Department 1">Department 1</option>
+                <option value="Department 2">Department 2</option>
+                <option value="Department 3">Department 3</option>
+              </select>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="doctor" id="doctor" class="form-select" required="">
+                <option value="">Select Doctor</option>
+                <option value="Doctor 1">Doctor 1</option>
+                <option value="Doctor 2">Doctor 2</option>
+                <option value="Doctor 3">Doctor 3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+          </div>
+          <div class="mt-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+            <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          </div>
+        </form>
+
+      </div>
+
+    </section><!-- /Appointment Section --> {% endcomment %}
+
+ <!-- Departments Section -->
+<section id="departments" class="departments section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Departments</h2>
+    <p>At RhéaCare, our specialized departments are dedicated to providing comprehensive and holistic care for your well-being.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row">
+      <div class="col-lg-3">
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">Rheumatology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">Physical Therapy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">Neurology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">Pain Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-5">Wellness & Lifestyle</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="tab-content">
+          <div class="tab-pane active show" id="departments-tab-1">
+            <div class="row">
+              <div class="col-lg-2 text-center order-1 order-lg-2">
+                <i class="fas fa-bone fa-3x"></i>
+              </div>
+              <div class="col-lg-10 details order-2 order-lg-1">
+                <h3>Rheumatology</h3>
+                <p class="fst-italic">Expert care for arthritis, autoimmune diseases, and musculoskeletal disorders.</p>
+                <p>Our rheumatology department provides cutting-edge diagnosis and treatment plans to help you manage chronic conditions and improve your quality of life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="departments-tab-2">
+            <div class="row">
+              <div class="col-lg-2 text-center order-1 order-lg-2">
+                <i class="fas fa-dumbbell fa-3x"></i>
+              </div>
+              <div class="col-lg-10 details order-2 order-lg-1">
+                <h3>Physical Therapy</h3>
+                <p class="fst-italic">Personalized programs to restore movement and functionality.</p>
+                <p>Our physical therapy specialists use evidence-based approaches to alleviate pain, enhance mobility, and strengthen your body after injury or surgery.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="departments-tab-3">
+            <div class="row">
+              <div class="col-lg-2 text-center order-1 order-lg-2">
+                <i class="fas fa-brain fa-3x"></i>
+              </div>
+              <div class="col-lg-10 details order-2 order-lg-1">
+                <h3>Neurology</h3>
+                <p class="fst-italic">Comprehensive care for neurological conditions affecting mobility and functionality.</p>
+                <p>We offer treatments for neuromuscular disorders, chronic pain, and coordination issues, tailored to your specific needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="departments-tab-4">
+            <div class="row">
+              <div class="col-lg-2 text-center order-1 order-lg-2">
+                <i class="fas fa-hand-holding-heart fa-3x"></i>
+              </div>
+              <div class="col-lg-10 details order-2 order-lg-1">
+                <h3>Pain Management</h3>
+                <p class="fst-italic">Effective solutions to manage and reduce chronic pain.</p>
+                <p>Our pain management specialists use both traditional and modern techniques to improve your daily life and reduce discomfort.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="departments-tab-5">
+            <div class="row">
+              <div class="col-lg-2 text-center order-1 order-lg-2">
+                <i class="fas fa-leaf fa-3x"></i>
+              </div>
+              <div class="col-lg-10 details order-2 order-lg-1">
+                <h3>Wellness & Lifestyle</h3>
+                <p class="fst-italic">Proactive care for a healthier and more balanced life.</p>
+                <p>Our wellness programs focus on preventive care, fitness, and nutritional counseling to enhance your overall health and well-being.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section><!-- /Departments Section -->
+
+
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'doctors-1.jpg'%}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Latifa Zouaoui</h4>
+                <span>Chief Medical Officer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'doctors-2.jpg'%}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sara Ben Ouhiba</h4>
+                <span>Anesthesiologist</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'doctors-3.jpg'%}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Siwar Jlassi</h4>
+                <span>Anesthesiologist</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'sisi.jpg'%}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sirine Nmiri</h4>
+                <span>Anesthesiologist</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'hedi.jpg'%}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Mohamed el Hedi Bettaieb</h4>
+                <span>Cardiology</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'mehdi.jpg'%}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Mehdi Fgaier</h4>
+                <span>Neurosurgeon</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Doctors Section -->
+
+   <!-- Faq Section -->
+<section id="faq" class="faq section light-background">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p>Here are some common questions we receive about rehabilitation and physical therapy.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>My back hurts and I can't stand. What exercises can help?</h3>
+            <div class="faq-content">
+              <p>If you're experiencing back pain and difficulty standing, gentle exercises can help. Consider starting with:</p>
+              <ul>
+                <li><strong>Pelvic Tilts:</strong> Lie on your back with your knees bent. Tighten your abdominal muscles and push your lower back into the floor. Hold for 5 seconds and repeat 10 times.</li>
+                <li><strong>Cat-Cow Stretch:</strong> Get on your hands and knees, and alternate between arching your back (cow) and rounding it (cat) for 10-15 repetitions.</li>
+                <li><strong>Knee-to-Chest Stretch:</strong> While lying on your back, pull one knee toward your chest while keeping the other leg bent or flat on the floor. Hold for 20-30 seconds on each side.</li>
+              </ul>
+              <p>These exercises aim to improve mobility, relieve pressure, and strengthen muscles around your spine. If pain persists, consult a healthcare professional.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>What should I do if my knee hurts after a long walk?</h3>
+            <div class="faq-content">
+              <p>Knee pain after walking can often be alleviated by resting, applying ice, and performing strengthening exercises. Some helpful exercises include:</p>
+              <ul>
+                <li><strong>Quad Sets:</strong> Sit with your leg straight and tighten your thigh muscle, pressing the back of your knee down into the floor. Hold for 5-10 seconds, then relax. Repeat 10-15 times.</li>
+                <li><strong>Straight Leg Raises:</strong> Lie down with one leg bent and the other straight. Slowly lift your straight leg about 6 inches off the ground, hold for 5 seconds, then lower it. Do 10 repetitions on each side.</li>
+                <li><strong>Hamstring Stretch:</strong> Sit on the floor with one leg extended straight and the other leg bent. Reach towards your toes of the straight leg while keeping your back straight.</li>
+              </ul>
+              <p>If discomfort persists, it's important to consult with a physical therapist or doctor to identify the cause.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>How can I reduce joint pain from arthritis?</h3>
+            <div class="faq-content">
+              <p>Managing joint pain from arthritis can be approached through a combination of exercise, medication, and lifestyle changes:</p>
+              <ul>
+                <li><strong>Low-Impact Aerobics:</strong> Activities like swimming, walking, or cycling can help improve joint function without putting excess stress on the joints.</li>
+                <li><strong>Strengthening Exercises:</strong> Focus on strengthening the muscles around the affected joint to reduce the load. Exercises like squats, leg raises, and light resistance training can be helpful.</li>
+                <li><strong>Stretching:</strong> Gentle stretches such as the <strong>seated hamstring stretch</strong> or <strong>chest-opening stretches</strong> can help keep the joints flexible and reduce stiffness.</li>
+              </ul>
+              <p>It's important to stay active within your comfort zone and consult your healthcare provider before starting any new exercise program.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Can physical therapy help with my posture?</h3>
+            <div class="faq-content">
+              <p>Yes, physical therapy can significantly improve your posture. Through exercises aimed at strengthening your core and back muscles, physical therapy helps you maintain proper alignment and reduce muscle strain. Some key exercises include:</p>
+              <ul>
+                <li><strong>Planks:</strong> Engage your core by holding a plank position for 20-30 seconds, ensuring your body remains straight from head to heels.</li>
+                <li><strong>Bridges:</strong> Lie on your back with knees bent and feet flat on the floor. Lift your hips towards the ceiling, engaging your glutes and core muscles. Hold for 5 seconds, then lower.</li>
+                <li><strong>Chin Tucks:</strong> Sit or stand up straight. Tuck your chin in towards your chest, aiming to create a double chin. Hold for 5 seconds, then relax.</li>
+              </ul>
+              <p>These exercises help improve alignment, stability, and overall posture. Regular practice can help prevent future back and neck pain.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>How long does it take to recover from physical therapy?</h3>
+            <div class="faq-content">
+              <p>The duration of recovery depends on various factors, including the severity of the condition, your age, and how consistent you are with your therapy sessions and exercises. On average, patients see noticeable improvements within 4 to 6 weeks. However, full recovery can take several months depending on the complexity of the issue.</p>
+              <p>Your physical therapist will work with you to develop a tailored treatment plan and adjust it as needed based on your progress.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+        </div>
+
+      </div><!-- End Faq Column-->
+
+    </div>
+
+  </div>
+
+</section><!-- /Faq Section -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section">
+
+  <div class="container">
+
+    <div class="row align-items-center">
+
+      <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
+        <h3>What Our Clients Say</h3>
+        <p>
+          At RhéaCare, we believe in the power of rehabilitation and physical therapy to transform lives. Hear from our clients about their experiences and the positive impact our services have had on their recovery journey.
+        </p>
+      </div>
+
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="d-flex">
+                  <img src="{% static 'assets/img/testimonials/testimonials-1.jpg'%}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Paul Dupont</h3>
+                    <h4>Chronic Back Pain Sufferer</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>After years of suffering from chronic back pain, RhéaCare’s physical therapy program helped me regain mobility and strength. Their approach to healing is holistic and effective.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="d-flex">
+                  <img src="{% static 'assets/img/testimonials/testimonials-2.jpg'%}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Claire Martin</h3>
+                    <h4>Post-Surgery Rehabilitation</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>After knee surgery, I struggled with mobility. RhéaCare’s expert team provided me with targeted exercises and guidance, and now I’m back to doing the activities I love!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="d-flex">
+                  <img src="{% static 'assets/img/testimonials/testimonials-3.jpg'%}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Jean-Pierre Lemoine</h3>
+                    <h4>Posture Improvement</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>My posture has improved dramatically thanks to the tailored exercises RhéaCare recommended. I no longer experience the same discomfort in my back after long hours at my desk.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="d-flex">
+                  <img src="{% static 'assets/img/testimonials/testimonials-4.jpg'%}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Marie Lefevre</h3>
+                    <h4>Chronic Shoulder Pain</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>RhéaCare's rehabilitation program has been a game-changer for me. The team’s focus on strengthening and mobility exercises for my shoulder pain has helped me achieve a full recovery.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="d-flex">
+                  <img src="{% static 'assets/img/testimonials/testimonials-5.jpg'%}" class="testimonial-img flex-shrink-0" alt="">
+                  <div>
+                    <h3>Jacques Dufresne</h3>
+                    <h4>General Well-being</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>I've never felt better! Thanks to RhéaCare, I’ve learned how to manage my stress and improve my physical health. Their holistic approach made all the difference in my well-being.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Testimonials Section -->
+
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-1.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-1.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-2.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-2.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-3.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-3.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-4.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-4.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-5.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-5.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-6.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-6.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-7.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-7.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'assets/img/gallery/gallery-8.jpg'%}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'assets/img/gallery/gallery-8.jpg'%}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d51075.14558791468!2d10.17885439289553!3d36.86171274720931!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2stn!4v1735387883166!5m2!1sfr!2stn" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Location</h3>
+                <p>Esprit,El ghazela ,Ariana</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+216 52 377 129</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>neuralleaders@gmail.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="" class="logo d-flex align-items-center">
+            <span class="sitename">Medilab</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Esprit</p>
+            <p>El Gahzela,ariana</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+216 52 377 129</span></p>
+            <p><strong>Email:</strong> <span>neuralleader@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Hic solutasetp</h4>
+          <ul>
+            <li><a href="#">Molestiae accusamus iure</a></li>
+            <li><a href="#">Excepturi dignissimos</a></li>
+            <li><a href="#">Suscipit distinctio</a></li>
+            <li><a href="#">Dilecta</a></li>
+            <li><a href="#">Sit quas consectetur</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js'%}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js'%}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navLinks = document.querySelectorAll('#navmenu a');
+  
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+          const href = this.getAttribute('href');
+  
+          // Vérifier si le lien est une ancre (commence par #)
+          if (href.startsWith('#')) {
+            event.preventDefault(); // Empêche le changement de l'URL
+  
+            const targetId = href.substring(1); // Récupère l'ID de la section cible
+            const targetSection = document.getElementById(targetId);
+  
+            if (targetSection) {
+              // Défilement fluide vers la section cible
+              targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          } else {
+            // Si ce n'est pas une ancre, permettre le comportement par défaut
+            // pour naviguer vers l'URL du chatbot
+          }
+        });
+      });
+    });
+  </script>
+  
+
+</body>
+
+</html>

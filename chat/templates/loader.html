@@ -1,0 +1,39 @@
+{% load static %}
+<!-- loader.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+            background: url("{% static 'C0648BA6-2153-4600-8EDD-F3F549293052.gif' %}") no-repeat center center fixed; /* Image GIF de fond */
+            background-size: 100% 98%; /* Définit la taille du GIF à 50% de sa taille d'origine */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        
+        #loading-gif {
+            display: none; /* Le div n'est plus nécessaire puisque le GIF est maintenant l'arrière-plan */
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="loading-gif">
+        <img src="{% static 'chatt.gif' %}" alt="Loading..." />
+    </div>
+
+    <script>
+        // Rediriger vers la page du chat après 5 secondes
+        setTimeout(function() {
+            window.location.href = "{% url 'index_page3' %}"; // Rediriger vers la page de chat après 5 secondes
+        }, 2000); // 5000ms = 5 secondes
+    </script>
+</body>
+</html>
