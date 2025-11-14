@@ -61,9 +61,9 @@ For integration with GUI or web interface, you can extend this with Streamlit / 
 This project is licensed under the MIT License — see LICENSE file for details.  
 
 # 👤 Authors
-Mohamed el hedi Bettaieb - AI Engineer • Multimodal & Agentic AI • RAG Systems
-Siwar Jlassi - AI Engineer • Multimodal & Agentic AI • RAG Systems
-Sirine Nmiri - AI Engineer • Multimodal & Agentic AI • RAG Systems
-Sarra ben Ouihiba - AI Engineer • Multimodal & Agentic AI • RAG Systems
-Latifa Zouaoui - AI Engineer • Multimodal & Agentic AI • RAG Systems
-Mehdi Fgaier - AI Engineer • Multimodal & Agentic AI • RAG Systems
+Mohamed el hedi Bettaieb - AI Engineer • Multimodal & Agentic AI • RAG Systems  
+Siwar Jlassi - AI Engineer • Multimodal & Agentic AI • RAG Systems  
+Sirine Nmiri - AI Engineer • Multimodal & Agentic AI • RAG Systems  
+Sarra ben Ouihiba - AI Engineer • Multimodal & Agentic AI • RAG Systems  
+Latifa Zouaoui - AI Engineer • Multimodal & Agentic AI • RAG Systems  
+Mehdi Fgaier - AI Engineer • Multimodal & Agentic AI • RAG Systems  
